@@ -98,7 +98,7 @@
 <body>
 
     <div class="container">
-        <h1>Cereza, ¿quieres ser mi San Valentín?</h1>
+        <h1 id="initial-message">Cereza, ¿quieres ser mi San Valentín?</h1>
         <div class="buttons">
             <button id="yes" onclick="showLove()">Sí</button>
             <button id="no" onclick="increaseYes()">No</button>
@@ -107,7 +107,7 @@
         <img id="love-image" class="hidden" src="https://static.vecteezy.com/system/resources/thumbnails/045/909/903/small/a-cute-orange-kitten-with-blue-eyes-is-laying-on-its-back-stock-png.png" alt="Gatito adorable">
 
         <!-- Música de fondo -->
-        <iframe id="music" width="0" height="0" src="https://www.youtube.com/embed/K-MuT2SY1FE?autoplay=1&loop=1&playlist=K-MuT2SY1FE" frameborder="0" allow="autoplay"></iframe>
+        <iframe id="music" width="0" height="0" src="https://www.youtube.com/embed/K-MuT2SY1FE?autoplay=1&loop=1&playlist=K-MuT2SY1FE&start=45" frameborder="0" allow="autoplay"></iframe>
     </div>
 
     <script>
@@ -125,6 +125,7 @@
         let index = 0;
         let yesButton = document.getElementById("yes");
         let messageBox = document.getElementById("message");
+        let initialMessage = document.getElementById("initial-message");
 
         function increaseYes() {
             let currentSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
@@ -141,6 +142,7 @@
         }
 
         function showLove() {
+            initialMessage.classList.add("hidden");
             document.querySelector(".buttons").style.display = "none";
             messageBox.textContent = "Gracias mi niña, por ese añito juntos <3";
             document.getElementById("love-image").classList.remove("hidden");
